@@ -7,27 +7,26 @@ authors = ["markhng525 <markhng525@gmail.com>"]
 [tool.poetry.dependencies]
 python = "3.10.2"
 jupyter = "1.0.0"
-matplotlib = "3.6.3"
 pandas = "1.5.3"
+pydantic = "1.10.7"
 torch = "1.13.1"
 transformers = "4.26.1"
-tensorboard = "2.12.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "23.1.0"
 isort = "5.12.0"
 mypy = "1.0.0"
-ruff = "0.0.241"
+pre-commit = "3.2.2"
+pytest = "7.3.1"
+pytest-mock = "3.10.0"
+ruff = "0.0.263"
 
 [tool.isort]
 profile = "black"
 
 # https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/
 [tool.mypy]
-plugins = [
-  "pydantic.mypy",
-  "numpy.typing.mypy_plugin",
-]
+plugins = ["pydantic.mypy", "numpy.typing.mypy_plugin"]
 check_untyped_defs = true
 disallow_any_unimported = true
 disallow_untyped_defs = true
@@ -43,17 +42,17 @@ ignore_missing_imports = true
 
 [tool.ruff]
 select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-    # "I",  # isort
-    "C",  # flake8-comprehensions
-    "B",  # flake8-bugbear
+  "E", # pycodestyle errors
+  "W", # pycodestyle warnings
+  "F", # pyflakes
+  # "I",  # isort
+  "C", # flake8-comprehensions
+  "B", # flake8-bugbear
 ]
 ignore = [
-    "E501",  # line too long, handled by black
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # too complex
+  "E501", # line too long, handled by black
+  "B008", # do not perform function calls in argument defaults
+  "C901", # too complex
 ]
 
 [build-system]
